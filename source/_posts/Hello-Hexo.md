@@ -1,7 +1,8 @@
 ---
 title: 'Hello,Hexo'
 date: 2018-08-23 16:22:15
-tags: [随笔]
+tags: [hexo]
+categories: "hexo"
 ---
 ### 迁移注意问题说明
 > 1.执行clone命名
