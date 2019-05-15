@@ -262,9 +262,9 @@
           {% endif %}
 
           {% if post.top %}
+            <span class="post-meta-divider">|</span>
             <i class="fa fa-thumb-tack"></i>
             <font color=green>置顶</font>
-            <span class="post-meta-divider">|</span>
           {% endif %}
         </div>
       </header>
