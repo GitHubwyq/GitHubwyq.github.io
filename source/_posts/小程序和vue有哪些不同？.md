@@ -339,6 +339,7 @@ changeTab(e){
 }
 ```
 ##### 暂时总结这么多
-![这是一张图片](https://github.com/GitHubwyq/photos/blob/master/imgs/1540356271655.jpg)
+![这是一张图片](https://github.com/GitHubwyq/photos/blob/master/imgs/1540356271655.jpg?raw=true)
+
 
 
