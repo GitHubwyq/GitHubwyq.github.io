@@ -339,7 +339,10 @@ changeTab(e){
 }
 ```
 ##### 暂时总结这么多
-![这是一张图片](https://github.com/GitHubwyq/photos/blob/master/imgs/1540356271655.jpg?raw=true)
+<!-- ![这是一张图片](https://github.com/GitHubwyq/photos/blob/master/imgs/1540356271655.jpg?raw=true) -->
+<div style='display:flex;justify-content: flex-start'>
+    ![这是一张图片](https://github.com/GitHubwyq/photos/blob/master/imgs/1540356271655.jpg?raw=true)
+</div>
 
 
 

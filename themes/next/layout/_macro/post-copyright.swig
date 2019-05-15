@@ -1,4 +1,4 @@
-<ul class="post-copyright">
+<ul class="post-copyright" style="margin: 2em 0 0;padding: 1.5em 1em;border-left: 3px solid #FF1700;background-color: #F9F9F9;list-style:none">
   <li class="post-copyright-author">
     <strong>{{ __('post.copyright.author') + __('symbol.colon') }}</strong>
     {{ post.author | default(config.author) }}
