@@ -841,3 +841,11 @@ daovoice_app_id: "272096fe"
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
+
+#修改文章内链接样式 
+custom_css:
+  # the style of post body link
+  post_body_a:
+    enable: true
+    normal_color: "#007ACC"
+    hover_color: "#CA0C16"
