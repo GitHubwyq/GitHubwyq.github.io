@@ -9,7 +9,7 @@ categories: "hexo"
 >> git clone -b hexo 路径
 
 > 2.安装依赖
->> 依次执行 npm install hexo(最好全局安装hexo，不然hexo环境变量不主动配置) npm install npm insatll hexo-deployer-git     (*切记不要执行hexo init)
+>> 依次执行 npm install hexo(最好全局安装hexo，不然hexo环境变量不主动配置) npm insatll hexo-deployer-git     (*切记不要执行hexo init)
 
 
 ### 迁移后注意事项
