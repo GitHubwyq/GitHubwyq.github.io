@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a72ea3;
+  background: #7cff69;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3135,12 +3135,4 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
-}
-.post-body a {
-  color: #007acc;
-  border-bottom: none;
-}
-.post-body a:hover {
-  color: #ca0c16;
-  text-decoration: underline;
 }
