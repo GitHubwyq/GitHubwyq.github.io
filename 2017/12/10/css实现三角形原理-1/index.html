@@ -441,7 +441,7 @@
         <blockquote>
 <p>对于一个块级元素，但我们分别将元素的上下左右四个border设置成一个比较大的像素（如10px），样式设置成solid ,分别设置成不同的颜色的时候，同时将元素的width,height设置为0.这时我们将会看到四条边均呈现为三角形的形状。如图：</p>
 </blockquote>
-<!--  –&gt;
+<!-- <img src="/2017/12/10/css实现三角形原理-1/20160709112257058.png" title="如图"> –&gt;
 <p>其css样式为：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">20px</span> solid aqua;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">20px</span> solid <span class="number">#760000</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">20px</span> solid blue;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">20px</span> solid darkkhaki;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一个普通的div。四个三角形分别是四条border四条border所呈现出来的，而我们最终的效果好像跟一个三角形的关系比较大些。如果得到一个三角形呢？其实这个很简单，我们只需要把其余三条border颜色属性设置为transparent（透明）的样式，另一个border的颜色属性保持不变。</p>
@@ -453,7 +453,7 @@
 <p>css部分<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">20px</span> solid darkkhaki;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>此时的效果：如下图</p>
-<!--  –&gt;
+<!-- <img src="/2017/12/10/css实现三角形原理-1/20160709113050655.png" title="如图"> –&gt;
 <p>好了，三角形出来了。那我们也就实现了最为关键的的地方。我们在弄出来一个白色的三角形，然后将白色三角形覆盖到这个有色三角形之上，但是不能完全覆盖，让其露出一个尖角的效果来。这就是基本的原理。</p>
 <h4 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h4><p>首先需要一个div容器，设置border,width,height的属性，同时将设置其为相对定位。</p>
 <p>上代码</p>
@@ -464,7 +464,7 @@
 <p>css部分<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.angle-wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#cccccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>效果图如下：</p>
-<!--  –&gt;
+<!-- <img src="/2017/12/10/css实现三角形原理-1/111111.png" title="如图"> –&gt;
 <p>然后需要为这个在这个div右边框上添加两个三角形，一个三角形颜色与边框颜色相同，另一个三角形颜为白色，用于覆盖第一个三角形颜色的一部分。</p>
 <p>这里我们使用元素的伪选择器:before,:after来加入这两个三角形，before和after默认为行内元素，所以首先要将其设置为块级元素，绝对定位。</p>
 <p>首先添加before伪选择器，用它来生成与border颜色的相同的第一个三角形，并将其定位到左边框上。</p>
@@ -472,13 +472,13 @@
 <p>上代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.angle-wrapper</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#cccccc</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>效果图如下：</p>
-<!--  –&gt;
+<!-- <img src="/2017/12/10/css实现三角形原理-1/20190124172635.png" title="如图"> –&gt;
 <p>然后添加after伪选择器，用它生成一个白色的三角形，并将其定位到左边框上。这里需要注意的是白色三角形的大小要比有色三角形要小一些，小多少要根据div边框的大小而定。我这里边框为2px,所以白色三角形就比灰色三角形就小两个px。这样可以避免白色三角形将灰色三角形全覆盖，然后可以产生尖角的效果来。（我这里说的大小就是设置三角形时的border的px值，如after这里是18px,before那里是20px）</p>
 <blockquote>
 <p>上代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.angle-wrapper</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">18px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#FFFFFF</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">18px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>效果图如下：</p>
-<!--  –&gt;
+<!-- <img src="/2017/12/10/css实现三角形原理-1/20190124172806.png" title="如图"> –&gt;
 <p>完成。（这个对话框做的有点丑哈）</p>
 -->
       
@@ -548,7 +548,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/04/琐碎小问题/" rel="prev" title="琐碎小问题！">
+              <a href="/2018/02/04/琐碎小问题！/" rel="prev" title="琐碎小问题！">
                 琐碎小问题！ <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -650,7 +650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
