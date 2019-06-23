@@ -67,6 +67,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[单独更改elementuUi的表格样式]]></title>
+    <url>%2F2019%2F03%2F09%2F%E5%8D%95%E7%8B%AC%E6%9B%B4%E6%94%B9elementuUi%E7%9A%84%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[element更改表格表头、行、指定单元格样式更改表格的样式使用header-cell-style属性，可为函数或对象1、函数写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="rowClass"&gt;&lt;/el-table&gt; 12345//在method里面写上方法rowClass(&#123; row, rowIndex&#125;) &#123; console.log(rowIndex) //表头行标号为0 return 'background:red'&#125; 2、对象写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="&#123;background:'red'&#125;"&gt;&lt;/el-table&gt; 更改表格中某个单元格的样式1、函数写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="cellStyle"&gt;&lt;/el-table&gt; 123456789//在method里面写上方法cellStyle(&#123;row, column, rowIndex, columnIndex&#125;)&#123; if(rowIndex === 1 &amp;&amp; columnIndex === 2)&#123; //指定坐标 return 'background:pink' &#125;else&#123; return '' &#125;&#125; 2、对象写法12&lt;!-- html --&gt;&lt;el-table :cell-style="&#123;background:'pink'&#125;"&gt;&lt;/el-table&gt;]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[滚动吸顶效果的实现方式]]></title>
     <url>%2F2018%2F03%2F15%2F%E6%BB%9A%E5%8A%A8%E5%90%B8%E9%A1%B6%E6%95%88%E6%9E%9C%E7%9A%84%E5%AE%9E%E7%8E%B0-%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[实现方式1.使用 position:sticky 实现 2.使用 JQuery 的 offset().top 实现 3.使用原生的 offsetTop 实现 一、使用 position:sticky 实现 1.什么是sticky（粘性定位） 粘性定位 sticky 相当于相对定位 relative 和固定定位 fixed 的结合；在页面元素滚动过程中，某个元素距离其父元素的距离达到 sticky 粘性定位的要求时；元素的相对定位 relative 效果变成固定定位 fixed 的效果。 2.如何使用？ 使用条件 1.父元素不能 overflow:hidden 或者 overflow:auto 属性;2.必须指定 top、bottom、left、right 4 个值之一，否则只会处于相对定位3.父元素的高度不能低于 sticky 元素的高度4.sticky 元素仅在其父元素内生效 在需要滚动吸顶的元素加上以下样式便可以实现这个效果：12345.sticky &#123; position: -webkit-sticky; position: sticky; top: 0;&#125; 二、使用 JQuery 的 offset().top 实现我们知道 JQuery 中封装了操作 DOM 和读取 DOM 计算属性的 API，基于 offset().top 这个 API 和 scrollTop() 的结合，我们也可以实现滚动吸顶效果。 12345678 window.addEventListener('scroll', self.handleScrollOne);...handleScrollOne: function() &#123; let self = this; let scrollTop = $('html').scrollTop(); let offsetTop = $('.title_box').offset().top; self.titleFixed = scrollTop &gt; offsetTop;&#125; 三、使用原生的 offsetTop 实现我们知道 offsetTop 是相对定位父级的偏移量，倘若需要滚动吸顶的元素出现定位父级元素，那么 offsetTop 获取的就不是元素距离页面顶部的距离。我们可以自己对 offsetTop 做以下处理： 12345678910111213141516171819202122232425 getOffset: function(obj,direction)&#123; let offsetL = 0; let offsetT = 0; while( obj!== window.document.body &amp;&amp; obj !== null )&#123; offsetL += obj.offsetLeft; offsetT += obj.offsetTop; obj = obj.offsetParent; &#125; if(direction === 'left')&#123; return offsetL; &#125;else &#123; return offsetT; &#125;&#125; ``` ##### 使用 ```jswindow.addEventListener('scroll', self.handleScrollTwo);...handleScrollTwo: function() &#123; let self = this; let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; let offsetTop = self.getOffset(self.$refs.pride_tab_fixed); self.titleFixed = scrollTop &gt; offsetTop;&#125;]]></content>
