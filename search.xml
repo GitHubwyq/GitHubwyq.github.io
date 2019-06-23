@@ -67,6 +67,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[elementUi的upload组件-action属性]]></title>
+    <url>%2F2019%2F03%2F13%2FelementUi%E7%9A%84upload%E7%BB%84%E4%BB%B6-action%E5%B1%9E%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[最近在适用VUE作为前端框架做自己的项目，在做到需要上传文件到服务器时,考虑到上传服务器的地址以后会变化，于是就想到action属性能不能赋值个变量，以后服务器地址改变后，直接改这个变量就行了于是查了一些资料，需要把action写成:action，然后后面跟着一个方法名，调用方法，返回你想要的地址，代码示例：1234567891011//html部分&lt;el-upload :action="UploadUrl()" :on-success="UploadSuccess" :file-list="fileList"&gt; &lt;el-button size="small" type="primary" &gt;点击上传&lt;/el-button&gt; &lt;div slot="tip" class="el-upload__tip"&gt;&lt;/div&gt;&lt;/el-upload&gt;//methods中的方法部分methods:&#123; UploadUrl:function()&#123; return "返回需要上传的地址"; &#125; &#125; 你可以把这个公用的url挂载到全局中（写在main.js中）1Vue.prototype.url='服务器地址' 使用的时候直接用this.url就能访问到]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[单独更改elementuUi的表格样式]]></title>
     <url>%2F2019%2F03%2F09%2F%E5%8D%95%E7%8B%AC%E6%9B%B4%E6%94%B9elementuUi%E7%9A%84%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[element更改表格表头、行、指定单元格样式更改表格的样式使用header-cell-style属性，可为函数或对象1、函数写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="rowClass"&gt;&lt;/el-table&gt; 12345//在method里面写上方法rowClass(&#123; row, rowIndex&#125;) &#123; console.log(rowIndex) //表头行标号为0 return 'background:red'&#125; 2、对象写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="&#123;background:'red'&#125;"&gt;&lt;/el-table&gt; 更改表格中某个单元格的样式1、函数写法12&lt;!-- html --&gt;&lt;el-table :header-cell-style="cellStyle"&gt;&lt;/el-table&gt; 123456789//在method里面写上方法cellStyle(&#123;row, column, rowIndex, columnIndex&#125;)&#123; if(rowIndex === 1 &amp;&amp; columnIndex === 2)&#123; //指定坐标 return 'background:pink' &#125;else&#123; return '' &#125;&#125; 2、对象写法12&lt;!-- html --&gt;&lt;el-table :cell-style="&#123;background:'pink'&#125;"&gt;&lt;/el-table&gt;]]></content>
