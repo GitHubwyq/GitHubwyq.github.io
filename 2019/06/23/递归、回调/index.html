@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -96,16 +96,20 @@
 
 
 
-<meta name="description" content="一只有梦想的咸鱼">
-<meta property="og:type" content="website">
-<meta property="og:title" content="无处停歇的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+<meta name="description" content="回调和递归最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结 递归函数 所谓递归函数，就是在函数体内直接或者间接的调用自己本身。使用递归如果稍微处理不当，就会进入死循环。书写递归的时候一定要注意书写出口1234567891011// 递归在函数内部调用自身    v">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="递归、回调">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/递归、回调/index.html">
 <meta property="og:site_name" content="无处停歇的博客">
-<meta property="og:description" content="一只有梦想的咸鱼">
+<meta property="og:description" content="回调和递归最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结 递归函数 所谓递归函数，就是在函数体内直接或者间接的调用自己本身。使用递归如果稍微处理不当，就会进入死循环。书写递归的时候一定要注意书写出口1234567891011// 递归在函数内部调用自身    v">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/GitHubwyq/photos/blob/master/imgs/5116fcdf8e51527c991032377f0009a.png?raw=true">
+<meta property="og:updated_time" content="2019-06-23T11:36:47.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无处停歇的博客">
-<meta name="twitter:description" content="一只有梦想的咸鱼">
+<meta name="twitter:title" content="递归、回调">
+<meta name="twitter:description" content="回调和递归最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结 递归函数 所谓递归函数，就是在函数体内直接或者间接的调用自己本身。使用递归如果稍微处理不当，就会进入死循环。书写递归的时候一定要注意书写出口1234567891011// 递归在函数内部调用自身    v">
+<meta name="twitter:image" content="https://github.com/GitHubwyq/photos/blob/master/imgs/5116fcdf8e51527c991032377f0009a.png?raw=true">
 
 
 
@@ -135,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/02/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/23/递归、回调/">
 
 
 
 
 
-  <title>归档 | 无处停歇的博客</title>
+  <title>递归、回调 | 无处停歇的博客</title>
   
 
 
@@ -160,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/GitHubwyq/GitHubwyq.github.io.git" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -327,72 +331,241 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/23/递归、回调/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无处停歇">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/ke.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无处停歇的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/04/琐碎小问题/" itemprop="url">
-              
-                <span itemprop="name">琐碎小问题！</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">递归、回调</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-02-04T13:49:57+08:00" content="2018-02-04">
-          02-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T19:23:51+08:00">
+                2019-06-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>浏览
+            </span>
+          
+
+          
+
+          
+
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h4 id="回调和递归"><a href="#回调和递归" class="headerlink" title="回调和递归"></a>回调和递归</h4><h5 id="最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。-如下图-于是，就有了这篇博客总结"><a href="#最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。-如下图-于是，就有了这篇博客总结" class="headerlink" title="最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结"></a>最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结</h5><p><img src="https://github.com/GitHubwyq/photos/blob/master/imgs/5116fcdf8e51527c991032377f0009a.png?raw=true" alt="图片"></p>
+<h5 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h5><blockquote>
+<p>所谓递归函数，就是在函数体内直接或者间接的调用自己本身。使用递归如果稍微处理不当，就会进入死循环。书写递归的时候一定要注意书写出口<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归在函数内部调用自身</span></span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        i--;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;<span class="comment">//出口</span></span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">console</span>.log(i)</span><br><span class="line">        test()</span><br><span class="line">    &#125;</span><br><span class="line">    test();<span class="comment">//打印结果9，8，7，6，5，4，3，2，1</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="若递归函数不给出口"><a href="#若递归函数不给出口" class="headerlink" title="若递归函数不给出口"></a>若递归函数不给出口</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"你好"</span>)</span><br><span class="line">        test();</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    test();</span><br><span class="line"><span class="comment">//打印结果为你好，将会一直执行直到栈区的内存空间全部占满，之后出现：Uncaught RangeError: Maximum call stack size exceeded</span></span><br><span class="line"><span class="comment">//这句话的意思是最大调用栈大小超过</span></span><br></pre></td></tr></table></figure>
+<h4 id="递归的小应用"><a href="#递归的小应用" class="headerlink" title="递归的小应用"></a>递归的小应用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快速排序 - 递归</span></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> i=num--;</span><br><span class="line">    sum += i;</span><br><span class="line">    <span class="keyword">if</span> (num&lt;<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    add(num);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> res = add(<span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(res);<span class="comment">//res=15;</span></span><br></pre></td></tr></table></figure>
+<h5 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h5><blockquote>
+<p>回调函数：把一个函数当做参数传给另一个函数，然后在另一个函数里面去调用这个函数。就叫做回调函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 应用场景：不知道什么时间应用，不知道应用什么函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"开始网络请求"</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"得到请求数据"</span>);</span><br><span class="line">        fn();</span><br><span class="line">    &#125;,(<span class="built_in">Math</span>.random()*<span class="number">3</span>+<span class="number">1</span>)*<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"数据展示开始"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showWomen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"这是一个程序媛的模块"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"这是汽车模块"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showArmy</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"军事展览区"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request(show);</span><br><span class="line">request(showArmy);</span><br><span class="line">request(showWomen);</span><br><span class="line">request(showCar);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><blockquote>
+<p>①函数内部定义函数—-闭包<br>  ②函数内部调用其他函数—函数调用<br>  ③函数内部调用参数传过来的函数—-回调函数<br>  ④函数内部调用自己这个函数—-递归</p>
+</blockquote>
+
+      
     </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright" style="margin: 2em 0 0;padding: 1.5em 1em;border-left: 3px solid #FF1700;background-color: #F9F9F9;list-style:none">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    无处停歇
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/06/23/递归、回调/" title="递归、回调">http://yoursite.com/2019/06/23/递归、回调/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/axios封装/" rel="next" title="axios封装">
+                <i class="fa fa-chevron-left"></i> axios封装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -400,6 +573,13 @@
 
 
           
+
+  
+    <div id="gitalk-container"></div>
+    
+  
+
+
 
         </div>
         
@@ -420,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -518,6 +707,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调和递归"><span class="nav-number">1.</span> <span class="nav-text">回调和递归</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。-如下图-于是，就有了这篇博客总结"><span class="nav-number">1.1.</span> <span class="nav-text">最近维护项目的时候发现页面会越来越卡，打开控制台调试时发现内存已占满，然后就是打开NetWork，发现里面有一个请求异常的多，于是就开始定位这个请求。(如下图)于是，就有了这篇博客总结</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#递归函数"><span class="nav-number">1.2.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#若递归函数不给出口"><span class="nav-number">1.3.</span> <span class="nav-text">若递归函数不给出口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归的小应用"><span class="nav-number">2.</span> <span class="nav-text">递归的小应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回调函数"><span class="nav-number">2.1.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">2.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +884,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -719,6 +928,25 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+    <script src="/js/src/md5.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '772092500d635cae59da',
+          clientSecret: '843254d264b4e5f000fc2dbe06a9dca03f1cf94c',
+          repo: 'GitHubwyq.github.io',
+          owner: 'GitHubwyq',
+          admin: ['GitHubwyq'], 
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   
