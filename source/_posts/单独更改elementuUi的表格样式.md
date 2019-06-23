@@ -1,6 +1,6 @@
 ---
 title: 单独更改elementuUi的表格样式
-date: 2019-03-9 23:41:14
+date: 2019-03-09 23:41:14
 tags: [vue]
 categories: "vue"
 ---
