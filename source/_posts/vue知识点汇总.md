@@ -1,8 +1,8 @@
 ---
 title: vue知识点汇总
 date: 2019-05-24 22:30:25
-tags: [Vue]
-categories: "Vue"
+tags: [vue]
+categories: "vue"
 ---
 #### 1、vue中key值的作用
 > key 的特殊属性主要用在 Vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。如果不使用key，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用key，它会基于key的变化重新排列元素顺序，并且会移除key不存在的元素。  

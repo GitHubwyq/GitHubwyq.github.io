@@ -1,8 +1,8 @@
 ---
 title: 小程序和vue有哪些不同？
 date: 2019-05-15 15:07:08
-tags: [Vue]
-categories: "Vue"
+tags: [vue]
+categories: "vue"
 ---
 #### 1.生命周期
 ##### 小程序  
